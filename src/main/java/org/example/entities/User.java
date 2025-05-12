@@ -38,6 +38,17 @@ public class User {
         this.ville = ville;
         this.daten = daten;
     }
+    public User(String nom, String prenom, String email, String password, String telephone, String ville, LocalDate daten, String role, int statut) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.password = password;
+        this.telephone = telephone;
+        this.ville = ville;
+        this.daten = daten;
+        this.role = role;
+        this.statut = statut;
+    }
 
     public String getPrenom() {
         return prenom;

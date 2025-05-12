@@ -16,6 +16,12 @@
                 <Button text="Retour" onAction="#retourAccueil" style="-fx-background-color: #95a5a6; -fx-text-fill: white;"/>
             </HBox>
 
+            <!-- Search bar -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" promptText="Rechercher un utilisateur..." prefWidth="250"/>
+                <Button text="Rechercher" onAction="#searchUser" style="-fx-background-color: #f39c12; -fx-text-fill: white;"/>
+            </HBox>
+
             <TableView fx:id="usersTable" VBox.vgrow="ALWAYS">
                 <columns>
                     <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>

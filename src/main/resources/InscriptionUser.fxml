@@ -13,6 +13,7 @@
 <?import javafx.geometry.Insets?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="600.0" prefWidth="800.0" minHeight="600.0" minWidth="800.0" maxHeight="600.0" maxWidth="800.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.InscriptionUserController">
    <stylesheets>
       <URL value="@/Styles/InscriptionStyle.css" />
@@ -63,12 +64,12 @@
 
                            <VBox spacing="5.0">
                               <Label text="Mot de passe" style="-fx-text-fill: #34495e; -fx-font-size: 14px;" />
-                              <TextField fx:id="InscriptionMdpUserTF" prefHeight="35.0" prefWidth="320.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 5;" promptText="Créez votre mot de passe" />
+                              <PasswordField fx:id="InscriptionMdpUserTF" prefHeight="35.0" prefWidth="320.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 5;" promptText="Créez votre mot de passe" />
                            </VBox>
 
                            <VBox spacing="5.0">
                               <Label text="Confirmez votre mot de passe" style="-fx-text-fill: #34495e; -fx-font-size: 14px;" />
-                              <TextField fx:id="InscriptionMdpconfirmUserTF" prefHeight="35.0" prefWidth="320.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 5;" promptText="Confirmez votre mot de passe" />
+                              <PasswordField fx:id="InscriptionMdpconfirmUserTF" prefHeight="35.0" prefWidth="320.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 5;" promptText="Confirmez votre mot de passe" />
                            </VBox>
 
                            <VBox spacing="5.0">

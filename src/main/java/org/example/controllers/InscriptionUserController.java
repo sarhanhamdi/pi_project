@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ResourceBundle;
 
 public class InscriptionUserController implements Initializable {
@@ -97,6 +98,22 @@ public class InscriptionUserController implements Initializable {
         }
 
         LocalDate daten = InscriptionDatenUserTF.getValue();
+        if (daten == null) {
+            showAlert("Erreur", "Veuillez sélectionner une date de naissance.", Alert.AlertType.ERROR);
+            return;
+        }
+
+
+        if (daten.isAfter(LocalDate.now())) {
+            showAlert("Erreur", "La date de naissance ne peut pas être dans le futur.", Alert.AlertType.ERROR);
+            return;
+        }
+
+
+        if (Period.between(daten, LocalDate.now()).getYears() < 18) {
+            showAlert("Erreur", "Vous devez avoir au moins 18 ans pour vous inscrire.", Alert.AlertType.ERROR);
+            return;
+        }
 
         User user = new User(
                 InscriptionNomUserTF.getText(),

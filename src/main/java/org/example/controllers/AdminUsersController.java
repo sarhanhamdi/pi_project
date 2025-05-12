@@ -1,6 +1,7 @@
 package org.example.controllers;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,6 +26,9 @@ public class AdminUsersController {
 
     @FXML
     private Button retourButton;
+
+    @FXML
+    private TextField searchField;
 
     @FXML
     private TableView<User> usersTable;
@@ -58,6 +62,7 @@ public class AdminUsersController {
 
     @FXML
     private void initialize() {
+
         addBlockButtonToTable();
         ServiceUser serviceUser = new ServiceUser();
 
@@ -75,6 +80,10 @@ public class AdminUsersController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            searchUser(null); // Call your search method
+        });
+
     }
     private void addBlockButtonToTable() {
         actionsColumn.setCellFactory(param -> new TableCell<>() {
@@ -128,12 +137,41 @@ public class AdminUsersController {
 
     @FXML
     private void ajouterUtilisateur() {
-        // Logique pour ajouter un utilisateur
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AdminAddUser.fxml"));
+            Parent parent = loader.load();
+            adminUsersPane.getScene().setRoot(parent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void actualiserTable() {
         // Logique pour actualiser le tableau
+    }
+
+    @FXML
+    void searchUser(ActionEvent event) {
+        String searchText = searchField.getText().trim().toLowerCase();
+        ServiceUser serviceUser = new ServiceUser();
+
+        try {
+            List<User> allUsers = serviceUser.afficher();
+
+            if (searchText.isEmpty()) {
+                usersTable.setItems(FXCollections.observableArrayList(allUsers));
+            } else {
+                List<User> filteredUsers = allUsers.stream()
+                        .filter(user -> user.getEmail().toLowerCase().contains(searchText))
+                        .toList();
+
+                usersTable.setItems(FXCollections.observableArrayList(filteredUsers));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
