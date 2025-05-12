@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.ComboBox?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.TextArea?>
+        <?import javafx.scene.control.TextField?>
+        <?import javafx.scene.control.Tooltip?>
+        <?import javafx.scene.layout.AnchorPane?>
+        <?import javafx.scene.layout.HBox?>
+        <?import javafx.scene.layout.VBox?>
+        <?import javafx.scene.paint.LinearGradient?>
+        <?import javafx.scene.paint.Stop?>
+        <?import javafx.scene.shape.Rectangle?>
+        <?import javafx.scene.text.Font?>
+        <?import javafx.scene.effect.DropShadow?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjouterReclamationController">
+    <children>
+        <!-- Background with Sky Blue Gradient -->
+        <Rectangle width="800.0" height="600.0">
+            <fill>
+                <LinearGradient startX="0.0" startY="0.0" endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="#e6f0fa" offset="0.0" />
+                        <Stop color="#f0faff" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+
+        <!-- Decorative Wave -->
+        <Rectangle fill="#4fc3f733" width="200.0" height="100.0" x="600.0" y="0.0" arcWidth="80" arcHeight="80" opacity="0.4" />
+
+        <!-- Main Form Container -->
+        <VBox alignment="CENTER" layoutX="100.0" layoutY="120.0" prefHeight="450.0" prefWidth="600.0" spacing="15.0"
+              style="-fx-background-color: #fafafa; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4); -fx-padding: 30;">
+            <children>
+                <!-- Title -->
+                <Label style="-fx-text-fill: #263238; -fx-font-weight: bold;" text="Créer une Nouvelle Réclamation">
+                    <font>
+                        <Font name="System Bold" size="26.0" />
+                    </font>
+                </Label>
+                <Label style="-fx-text-fill: #78909c;" text="Remplissez les détails pour ajouter une réclamation">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+
+                <!-- Contenu Field -->
+                <Label style="-fx-text-fill: #263238;" text="Contenu de la Réclamation *">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="contenuField" prefHeight="100.0" promptText="Ex. 'Problème avec le service client'"
+                          style="-fx-background-color: #ffffff; -fx-border-color: #4fc3f7; -fx-border-radius: 10; -fx-border-width: 1; -fx-padding: 12; -fx-text-fill: #263238;">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                    <tooltip>
+                        <Tooltip text="Décrivez le contenu de la réclamation" />
+                    </tooltip>
+                </TextArea>
+
+                <!-- Status Field -->
+                <Label style="-fx-text-fill: #263238;" text="Statut *">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="statusField" promptText="Ex. en_cours ou traité"
+                           style="-fx-background-color: #ffffff; -fx-border-color: #4fc3f7; -fx-border-radius: 10; -fx-border-width: 1; -fx-padding: 12; -fx-text-fill: #263238;">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                    <tooltip>
+                        <Tooltip text="Entrez le statut (en_cours ou traité)" />
+                    </tooltip>
+                </TextField>
+
+                <!-- Motif Field -->
+                <Label style="-fx-text-fill: #263238;" text="Motif de la Réclamation *">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="motifComboBox" promptText="Sélectionnez un motif" prefWidth="200.0"
+                          style="-fx-background-color: #ffffff; -fx-border-color: #4fc3f7; -fx-border-radius: 10; -fx-border-width: 1; -fx-padding: 10;">
+                    <tooltip>
+                        <Tooltip text="Choisissez le motif de la réclamation" />
+                    </tooltip>
+                </ComboBox>
+
+                <!-- Buttons -->
+                <HBox alignment="CENTER" spacing="15.0">
+                    <Button fx:id="submitButton" onAction="#ajouterReclamation"
+                            style="-fx-background-color: #4fc3f7; -fx-text-fill: #ffffff; -fx-background-radius: 20; -fx-padding: 14 40; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0, 0, 3);" text="Créer la Réclamation">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="cancelButton" onAction="#cancel"
+                            style="-fx-background-color: #ffab91; -fx-text-fill: #ffffff; -fx-background-radius: 20; -fx-padding: 14 40; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0, 0, 3);" text="Annuler">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Button>
+                </HBox>
+
+                <!-- Message Label -->
+                <Label fx:id="messageLabel" text="" style="-fx-text-fill: #ffab91; -fx-font-size: 13px; -fx-font-style: italic;" />
+            </children>
+            <padding>
+                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+            </padding>
+        </VBox>
+
+        <!-- Footer -->
+        <Label layoutX="650.0" layoutY="570.0" style="-fx-text-fill: #78909c;" text="© 2025 Covoiturage Éco">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminReclamationController" spacing="10" alignment="CENTER">
+    <Label text="Gestion des Réclamations" style="-fx-font-size: 18px;"/>
+    <TableView fx:id="reclamationTable">
+        <columns>
+            <TableColumn text="ID" fx:id="idColumn"/>
+            <TableColumn text="Utilisateur" fx:id="userColumn"/>
+            <TableColumn text="Motif" fx:id="motifColumn"/>
+            <TableColumn text="Description" fx:id="descriptionColumn"/>
+            <TableColumn text="Statut" fx:id="statutColumn"/>
+        </columns>
+    </TableView>
+    <TextArea fx:id="reponseField" promptText="Réponse à la réclamation"/>
+    <Button text="Envoyer Réponse" onAction="#sendResponse"/>
+</VBox>
