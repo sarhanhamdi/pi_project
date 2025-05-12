@@ -29,11 +29,20 @@ public class UserAcceuilController {
             showAlert("Erreur", "Veuillez remplir tous les champs.", Alert.AlertType.ERROR);
             return;
         }
+
         ServiceUser serviceUser = new ServiceUser();
         try {
             User user = serviceUser.findByEmail(email);
+            if (user == null) {
+                showAlert("Erreur", "L'email n'existe pas.", Alert.AlertType.ERROR);
+                return;
+            }
             if (user.getStatut() == 0) {
                 showAlert("Compte bloqué", "Votre compte a été bloqué. Veuillez contacter l'administrateur.", Alert.AlertType.WARNING);
+                return;
+            }
+            if (user == null) {
+                showAlert("Erreur", "L'email n'existe pas.", Alert.AlertType.ERROR);
                 return;
             }
             System.out.println("Rôle de l'utilisateur : " + user.getRole());
