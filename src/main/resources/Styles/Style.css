@@ -1,0 +1,76 @@
+
+.root {
+    -fx-background-image: url("images/background1.png");
+
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Title styling */
+.title-label {
+    -fx-text-fill: #1a73e8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
+}
+
+/* Login pane styling */
+.login-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+    -fx-padding: 20px;
+}
+
+/* Field labels */
+.field-label {
+    -fx-text-fill: #5f6368;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Text fields */
+.text-field {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dadce0;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused {
+    -fx-border-color: #1a73e8;
+    -fx-background-color: white;
+}
+
+/* Primary button (Connect) */
+.primary-button {
+    -fx-background-color: #1a73e8;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #1557b0;
+}
+
+/* Secondary button (Register) */
+.secondary-button {
+    -fx-background-color: transparent;
+    -fx-border-color: #1a73e8;
+    -fx-text-fill: #1a73e8;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #f1f7fe;
+}
+
+/* Info label */
+.info-label {
+    -fx-text-fill: #5f6368;
+    -fx-font-size: 13px;
+}

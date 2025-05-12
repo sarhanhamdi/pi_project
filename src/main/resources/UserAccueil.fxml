@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Rectangle?>
+
+<?import java.net.URL?>
+<AnchorPane fx:id="UserAccueil" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-image: url('images/background1.png');-fx-background-size: cover;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.UserAcceuilController">
+<stylesheets>
+   <URL value="@Styles/Style.css" />
+</stylesheets>
+   <children>
+      <Pane fx:id="Panemain" layoutX="350.0" layoutY="100.0" prefHeight="400.0" prefWidth="300.0">
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" height="400.0" width="300.0" fill="WHITE" />
+            <VBox alignment="CENTER" spacing="25.0" layoutX="25.0" layoutY="40.0" prefWidth="250.0">
+               <children>
+                  <Label text="Connexion" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #4a00e0;">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+
+                  <VBox spacing="8.0">
+                     <Label text="Email" style="-fx-text-fill: #666666; -fx-font-size: 14px;" />
+                     <TextField fx:id="emailconnectTF" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #e0e0e0; -fx-padding: 8; -fx-font-size: 14px;" promptText="Votre email" />
+                  </VBox>
+
+                  <VBox spacing="8.0">
+                     <Label text="Mot de passe" style="-fx-text-fill: #666666; -fx-font-size: 14px;" />
+                     <TextField fx:id="mdpconnectTF" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #e0e0e0; -fx-padding: 8; -fx-font-size: 14px;" promptText="Votre mot de passe" />
+                  </VBox>
+
+                  <Button onAction="#ConnecterButtonUser" prefHeight="45.0" prefWidth="250.0" text="Se connecter" style="-fx-background-color: linear-gradient(to right, #4a00e0, #8e2de2); -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" />
+
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <Label text="Nouveau sur la plateforme ?" style="-fx-text-fill: #666666;" />
+                     <Button onAction="#InscriptionUserButton" text="S'inscrire" style="-fx-background-color: transparent; -fx-text-fill: #4a00e0; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 0;" />
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
