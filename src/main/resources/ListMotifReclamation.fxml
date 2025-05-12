@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.TableColumn?>
+        <?import javafx.scene.control.TableView?>
+        <?import javafx.scene.control.cell.PropertyValueFactory?>
+        <?import javafx.scene.layout.AnchorPane?>
+        <?import javafx.scene.layout.HBox?>
+        <?import javafx.scene.layout.VBox?>
+        <?import javafx.scene.paint.LinearGradient?>
+        <?import javafx.scene.paint.Stop?>
+        <?import javafx.scene.shape.Rectangle?>
+        <?import javafx.scene.text.Font?>
+        <?import javafx.scene.effect.DropShadow?>
+        <?import javafx.scene.layout.Region?>
+
+<AnchorPane prefHeight="650.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ListMotifReclamationController">
+    <children>
+        <!-- Background with Sky Blue Gradient -->
+        <Rectangle width="850.0" height="650.0">
+            <fill>
+                <LinearGradient startX="0.0" startY="0.0" endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="#e6f0fa" offset="0.0" />
+                        <Stop color="#f0faff" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+
+        <!-- Decorative Wave -->
+        <Rectangle fill="#4fc3f733" width="250.0" height="150.0" x="600.0" y="0.0" arcWidth="100" arcHeight="100" opacity="0.4" />
+
+        <!-- Header Area -->
+        <HBox alignment="CENTER_LEFT" layoutX="50.0" layoutY="40.0" prefWidth="750.0">
+            <children>
+                <VBox>
+                    <Label text="Covoiturage Éco" style="-fx-text-fill: #263238; -fx-font-weight: bold;">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Label>
+                    <Label text="Motifs de Réclamation" style="-fx-text-fill: #263238; -fx-font-weight: bold;">
+                        <font>
+                            <Font size="24.0" />
+                        </font>
+                    </Label>
+                </VBox>
+            </children>
+        </HBox>
+
+        <!-- Main Form Container -->
+        <VBox alignment="TOP_CENTER" layoutX="100.0" layoutY="120.0" prefWidth="650.0" prefHeight="470.0"
+              style="-fx-background-color: #fafafa; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4);">
+            <padding>
+                <Insets top="30.0" right="30.0" bottom="30.0" left="30.0" />
+            </padding>
+
+            <!-- Title with Accent Line -->
+            <VBox alignment="CENTER" spacing="8.0">
+                <Label style="-fx-text-fill: #263238; -fx-font-weight: bold;" text="Liste des Motifs de Réclamation">
+                    <font>
+                        <Font name="System Bold" size="26.0" />
+                    </font>
+                </Label>
+                <Rectangle height="3.0" width="80.0" fill="#4fc3f7" />
+                <Label style="-fx-text-fill: #78909c;" text="Consultez et gérez les motifs de réclamation">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+            </VBox>
+
+            <Region prefHeight="20.0" />
+
+            <!-- TableView with Improved Styling -->
+            <TableView fx:id="motifTable" prefHeight="280.0" prefWidth="590.0"
+                       style="-fx-background-color: #ffffff; -fx-border-color: #4fc3f7; -fx-border-radius: 10; -fx-border-width: 1; -fx-background-radius: 10;">
+                <columns>
+                    <TableColumn text="ID" prefWidth="60.0" style="-fx-alignment: CENTER;">
+                        <cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Nom" prefWidth="200.0">
+                        <cellValueFactory><PropertyValueFactory property="nom" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Description" prefWidth="330.0">
+                        <cellValueFactory><PropertyValueFactory property="description" /></cellValueFactory>
+                    </TableColumn>
+                </columns>
+                <effect>
+                    <DropShadow color="#00000022" radius="5.0" spread="0.02" />
+                </effect>
+            </TableView>
+
+            <Region prefHeight="25.0" />
+
+            <!-- Message Label -->
+            <Label fx:id="messageLabel" text="" style="-fx-text-fill: #ffab91; -fx-font-size: 13px; -fx-font-style: italic;"/>
+
+            <Region prefHeight="15.0" />
+
+            <!-- Action Buttons -->
+            <HBox alignment="CENTER" spacing="20.0">
+                <Button fx:id="addButton" onAction="#addMotif" prefWidth="140.0" prefHeight="45.0"
+                        style="-fx-background-color: #4fc3f7; -fx-text-fill: #ffffff; -fx-background-radius: 22; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0, 0, 3);"
+                        text="Ajouter">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Button>
+                <Button fx:id="modifyButton" onAction="#modifyMotif" prefWidth="140.0" prefHeight="45.0"
+                        style="-fx-background-color: #4fc3f7; -fx-text-fill: #ffffff; -fx-background-radius: 22; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0, 0, 3);"
+                        text="Modifier" disable="true">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Button>
+                <Button fx:id="deleteButton" onAction="#deleteMotif" prefWidth="140.0" prefHeight="45.0"
+                        style="-fx-background-color: #ffab91; -fx-text-fill: #ffffff; -fx-background-radius: 22; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0, 0, 3);"
+                        text="Supprimer" disable="true">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Button>
+                <Button fx:id="cancelButton" onAction="#cancel" prefWidth="140.0" prefHeight="45.0"
+                        style="-fx-background-color: #ffab91; -fx-text-fill: #ffffff; -fx-background-radius: 22; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0, 0, 3);"
+                        text="Annuler">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Button>
+            </HBox>
+        </VBox>
+
+        <!-- Footer Text -->
+        <Label layoutX="650.0" layoutY="620.0" style="-fx-text-fill: #78909c;" text="© 2025 Covoiturage Éco">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
