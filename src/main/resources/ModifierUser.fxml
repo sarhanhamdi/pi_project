@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controllers.ModifierUserController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Label layoutX="87.0" layoutY="98.0" text="Nom" />
+        <TextField fx:id="ModifierNomUserTF" layoutX="239.0" layoutY="94.0" />
+        <Button fx:id="ModifierButton" layoutX="523.0" layoutY="405.0" mnemonicParsing="false" onAction="#ModifierUserButton" text="Modifier" />
+        <Label layoutX="218.0" layoutY="25.0" text="Modifier">
+            <font>
+                <Font name="Britannic Bold" size="40.0" />
+            </font>
+        </Label>
+        <Label layoutX="85.0" layoutY="145.0" text="Prenom" />
+        <Label layoutX="84.0" layoutY="220.0" text="Email" />
+        <Label layoutX="79.0" layoutY="259.0" text="Nouveau Mot de passe" />
+        <Label layoutX="80.0" layoutY="298.0" text="Confirmez votre mot de passe" />
+        <Label layoutX="80.0" layoutY="341.0" text="Telephone" />
+        <Label layoutX="83.0" layoutY="383.0" text="ville" />
+        <Label layoutX="84.0" layoutY="184.0" text="Date de naissance" />
+        <DatePicker fx:id="ModifierDatenUserTF" layoutX="241.0" layoutY="180.0" prefHeight="26.0" prefWidth="150.0" />
+        <TextField fx:id="ModifierPrenomUserTF" layoutX="240.0" layoutY="141.0" />
+        <TextField fx:id="ModifierEmailUserTF" layoutX="241.0" layoutY="216.0" />
+        <TextField fx:id="ModifierMdpUserTF" layoutX="242.0" layoutY="255.0" />
+        <TextField fx:id="ModifierMdpconfirmUserTF" layoutX="243.0" layoutY="294.0" />
+        <TextField fx:id="ModifierTelUserTF" layoutX="243.0" layoutY="337.0" />
+        <ComboBox fx:id="ModifierVilleUserTF" layoutX="239.0" layoutY="379.0" prefWidth="150.0" />
+    </children>
+
+</AnchorPane>
